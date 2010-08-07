@@ -63,3 +63,20 @@ class GridPresenter extends BasePresenter{
 	}
 
 }
+
+Ukázkový model:
+<?php
+use Gridito\DibiEditableModel;
+
+
+final class ColorsModel{
+
+	public static function getInstance(){
+		return DibiEditableModel::factory('colors')
+			->setCreateHandler(function($vals){
+				return $vals+array('created'=>time());
+			})
+			->build();
+	}
+
+}
